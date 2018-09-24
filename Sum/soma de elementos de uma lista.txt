@@ -1,0 +1,13 @@
+#lang racket
+(define a 0)
+(define (soma1 lista a)
+  (cond
+    [(empty? lista) a]
+    [else (soma1 (cdr lista) (+ a (car lista)))]))
+
+
+(define (soma lista)
+  (soma1 lista a))
+
+
+(soma (list 4 3 5 7 3  2 4 3 7 3 5  33  7 7))

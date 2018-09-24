@@ -1,0 +1,11 @@
+#lang racket
+(define a 0)
+(define (contador lista a)
+  (cond
+    [(empty? lista) a]
+    [else (contador (cdr lista) (+ 1 a))]))
+
+(define (NumEle lista)
+  (contador lista a))
+
+(NumEle (list  13309482 2838448 3998948 "suhudfhuahdu" "iji3nfbud" "almdiufnbunbs" "suh3i83ruu48e" "ajndu3iioe29" "skdj930009uin" "sknuihn0e0 9w nw00"))

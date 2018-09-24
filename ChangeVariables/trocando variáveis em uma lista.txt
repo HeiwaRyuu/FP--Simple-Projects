@@ -1,0 +1,9 @@
+#lang racket
+
+(define (troca a b lista)
+  (cond
+    [(empty? lista) lista]
+    [(= a (car lista)) (cons b(troca a b (cdr lista)))]
+    [else (cons (car lista)(troca a b (cdr lista)))]))
+
+(troca 2 4 (list 1 2 3 6 2 5 8 2 8 2))

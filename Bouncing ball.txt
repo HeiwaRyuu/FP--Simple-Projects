@@ -1,0 +1,29 @@
+;image->image
+;Makes a ball keep bouncing btween the top and bottom of the canvas
+;needs a ball, a scene, a tock function , a main function with big-bang and a to-draw function
+(define b(circle 5 "solid" "red"))
+(define a 200)
+(define c 200)
+(define limit(- a (/ (image-width b) 2)))
+(define center(/ c 2))
+(define scene(empty-scene c a))
+(define (tock x)
+  (cond
+    [(<= x limit) (+ x 5)]
+    [(> x limit) (* -1  x)]))
+
+(define (move x)
+  (place-image b  center (if(<  x 0) (* -1 x) x)  scene))
+
+(define (call-back x ke)
+  (cond
+    [(string=? ke " ") 0]
+    [(string=? ke "m") center]))
+
+(define (main x)
+  (big-bang x
+    (to-draw move)
+    (on-tick tock)
+    (on-key call-back)))
+
+(main 0)

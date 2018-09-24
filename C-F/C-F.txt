@@ -1,0 +1,5 @@
+#lang racket
+
+(define (C Ce)
+  (+ (/ (* 9 Ce) 5) 32))
+

@@ -1,0 +1,12 @@
+#lang racket
+
+(define (maior-da-lista lista maior)
+  (cond
+    [(empty? lista) maior]
+    [(<= maior (car lista)) (maior-da-lista (cdr lista) (car lista))]
+    [(> maior (car lista)) (maior-da-lista (cdr lista) maior)]))
+
+(define (maioral lista)
+  (maior-da-lista lista (car lista)))
+
+(maioral (list 3 2 4 2 6 8 32  534  2423))
