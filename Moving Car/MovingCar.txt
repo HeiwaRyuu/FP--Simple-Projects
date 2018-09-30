@@ -23,3 +23,5 @@
   (big-bang x
     (to-draw carro-andando)
     (on-tick por-tick)))
+
+(main 0)
