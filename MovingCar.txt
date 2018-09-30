@@ -1,0 +1,25 @@
+(define teto(rectangle 20 10 "solid" "red"))
+(define carroceria(rectangle 60 10 "solid" "red"))
+(define roda(circle 5 "solid" "black"))
+(define espaco(rectangle 20 10 "solid" "transparent"))
+(define rodas(beside roda espaco roda))
+(define carro(underlay/xy teto -20 10 (underlay/xy carroceria 10 10 rodas)))
+(define comprimento 200)
+(define altura 100)
+(define cena(empty-scene comprimento altura))
+(define ycarro(/ altura 2))
+(define limite(+ comprimento (image-width carro)))
+
+(define (carro-andando x)
+  (place-image carro x ycarro cena))
+
+(define (por-tick x)
+  (cond
+    [(< x limite) (+ 1 x)]
+    [(>= x limite) 0]))
+
+
+(define (main x)
+  (big-bang x
+    (to-draw carro-andando)
+    (on-tick por-tick)))
